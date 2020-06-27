@@ -10,7 +10,9 @@ const descriptiveCard = (props) => {
             </div>
             <div className={classes.ContentBorder}>
                 <h3>{props.name}</h3>
-                <p style={{textAlign:"left"}}>asdhkajshdkjahsjkdhdkfmslkdflksjdlfkjslkdflksjdflkjslkdjfklsjdlfjslkdjflksjdfkljslkdjflksjdklfjslkdjfklsjdlkfjlksdjfkljskldjflksdlkfjskldjlksjdklfjslkdjfklsjdlkfjslkjdflksjdlfkjsdlkfjklkjahskjdhkjahjkdhaksjhdkjahskjdhakjshkdjhakjsdhkjahksjd</p>
+                <p style={{ textAlign: "left" }}>
+                    {props.data}
+                </p>
             </div>
         </div>
     );

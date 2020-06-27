@@ -6,6 +6,8 @@
     border: solid 2px;
     margin: 20px auto;
     display: flex;
+    box-shadow: 8px 8px 1px #ccc;
+    background-color: #ccb;
 }
 
 @keyframes fadeOut {
