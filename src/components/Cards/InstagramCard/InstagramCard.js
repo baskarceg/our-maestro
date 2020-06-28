@@ -4,7 +4,7 @@ import classes from './InstagramCard.module.css';
 
 const instagramCard = (props) => {
     return (
-        <div className={classes.InstagramCard}>
+        <div key={props.key} className={classes.InstagramCard}>
             <InstagramEmbed
                 url={props.link}
                 maxWidth={320}

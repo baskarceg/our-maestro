@@ -4,6 +4,7 @@ import classes from './Homepage.module.css';
 import InstagramCard from '../../components/Cards/InstagramCard/InstagramCard'
 import DescriptiveCard from '../../components/Cards/DescriptiveCard/DescriptiveCard';
 import axios from '../../axios_orders';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 
 class Homepage extends Component {
@@ -55,12 +56,15 @@ class Homepage extends Component {
         console.log("render");
         console.log(this.state.size);
 
-        let something = this.state.cards ?
-            <DescriptiveCard
+        let something = <Spinner />
+
+        if (this.state.cards) {
+            something = <DescriptiveCard
                 name={this.state.cards[this.state.index].name}
                 data={this.state.cards[this.state.index].data}
-                imageUrl={this.state.cards[this.state.index].imageUrl} />
-            : null;
+                imageUrl={this.state.cards[this.state.index].imageUrl} />;
+        }
+
 
         return (
             <div>
