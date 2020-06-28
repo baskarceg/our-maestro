@@ -1,11 +1,12 @@
 import React from 'react';
 import InstagramEmbed from 'react-instagram-embed';
+import classes from './InstagramCard.module.css';
 
 const instagramCard = (props) => {
     return (
-        <div>
+        <div className={classes.InstagramCard}>
             <InstagramEmbed
-                url='https://www.instagram.com/tv/CB0s6PMpWR7/?igshid=tgattp75r9fl'
+                url={props.link}
                 maxWidth={320}
                 hideCaption={true}
                 containerTagName='div'
