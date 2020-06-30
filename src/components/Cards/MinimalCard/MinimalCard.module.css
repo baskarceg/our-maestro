@@ -1,3 +1,7 @@
 .MinimalCard{
     padding: 10%;
 }
+
+.MinimalCard h5{
+    font-family: "Finger Paint";
+}
