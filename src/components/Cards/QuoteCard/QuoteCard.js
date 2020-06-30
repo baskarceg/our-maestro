@@ -5,7 +5,7 @@ import classes from './QuoteCard.module.css';
 const quoteCard = (props) => {
     return (
         <div className={classes.QuoteCard}>
-            <blockquote className="blockquote text-right">
+            <blockquote className="blockquote text-center">
                 <p className="mb-0">
                     {props.content}
                 </p>

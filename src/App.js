@@ -9,12 +9,13 @@ import HerWorld from './containers/HerWorld/HerWorld';
 import Friends from './containers/Friends/Friends';
 import Family from './containers/Family/Family';
 import About from './containers/About/About';
+import classes from './App.module.css';
 
 
 class App extends Component {
 
 
-  navigate = (param ) => {
+  navigate = (param) => {
     console.log(param);
   }
 
@@ -22,17 +23,18 @@ class App extends Component {
     return (
       <div>
         <Navbar />
-        <Switch>
-          <Route path="/videos/:id" exact component={VideosPage} />
-          <Route path="/home" component={HomePage} />
-          <Route path="/about" component={About} />
-          <Route path="/herWorld" component={HerWorld} />
-          <Route path="/friends" component={Friends} />
-          <Route path="/family" component={Family} />
-          <Route path="/" component={HomePage} />
-          <Redirect from="/" to="/home" />
-        </Switch>
-        
+        <div className={classes.Content}>
+          <Switch>
+            <Route path="/videos/:id" exact component={VideosPage} />
+            <Route path="/home" component={HomePage} />
+            <Route path="/about" component={About} />
+            <Route path="/herWorld" component={HerWorld} />
+            <Route path="/friends" component={Friends} />
+            <Route path="/family" component={Family} />
+            <Route path="/" component={HomePage} />
+            <Redirect from="/" to="/home" />
+          </Switch>
+        </div>
       </div>
     );
   }
