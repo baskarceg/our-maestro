@@ -6,7 +6,7 @@ import classes from './VideoCollection.module.css';
 const videoCollection = ( props ) => {
 
     let instaVideos = null;
-    let videosPerPage = 6;
+    let videosPerPage = 3;
     console.log("Page"+ props.currentPage);
     let startIndex = (props.currentPage -1 ) * videosPerPage;
     let endIndex = ( props.currentPage ) * videosPerPage;

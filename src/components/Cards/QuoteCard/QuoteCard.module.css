@@ -1,0 +1,11 @@
+.QuoteCard{
+    width: 600px;
+    padding: 3%;
+    margin: auto;
+}
+
+@media (max-width : 480px) {
+    .QuoteCard{
+        width: 350px;
+    }
+  }

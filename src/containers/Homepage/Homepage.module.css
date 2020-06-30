@@ -1,5 +1,30 @@
 .Homepage {
+    
+  }
+
+.CustomButtonCSS {
+  margin-top: 150px;
+  padding-left:10px ;
+  padding-right: 10px;
+}
+
+.Horizondal {
     text-align: center;
     display: flex;
     flex-flow: row;
+    margin: 150px auto 0px;
+}
+
+.Vertical{
+  display: none;
+}
+
+@media (max-width : 480px) {
+  .Horizondal{
+    display: none;
   }
+  .Vertical{
+    display: flex;
+    flex-flow: column;
+  }
+}
