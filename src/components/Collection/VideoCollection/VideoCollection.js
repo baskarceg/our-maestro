@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import InstagramCard from '../../Cards/InstagramCard/InstagramCard';
 import classes from './VideoCollection.module.css';
 
-const videoCollection = ( props ) => {
+class VideoCollection extends Component {
 
+    state={
+        videosLoaded : 0
+    }
+
+    getSuccess = () => {
+        let increaseCount = this.state.videosLoaded + 1;
+        this.setState({videosLoaded:increaseCount});
+        console.log(this.state.videosLoaded);
+    }
+
+    render(){
     let instaVideos = null;
-    let videosPerPage = 3;
-    console.log("Page"+ props.currentPage);
-    let startIndex = (props.currentPage -1 ) * videosPerPage;
-    let endIndex = ( props.currentPage ) * videosPerPage;
-    if(props.videos !== null){
-        instaVideos = props.videos.map((video,id)=> {
+    let videosPerPage = this.props.videosPerPage;
+    console.log("Page"+ this.props.currentPage);
+    let startIndex = (this.props.currentPage -1 ) * videosPerPage;
+    let endIndex = ( this.props.currentPage ) * videosPerPage;
+    if(this.props.videos !== null){
+        instaVideos = this.props.videos.map((video,id)=> {
             if( id >= startIndex && id < endIndex){
-                return <InstagramCard key={id} link={video.link} />;
+                return <InstagramCard key={id} link={video.link} getSuccess={this.props.checkLoad}/>;
             }     
             return null;
         }) 
@@ -24,6 +35,7 @@ const videoCollection = ( props ) => {
             {instaVideos}
         </div>
     );
+    }  
 }
 
-export default videoCollection;
+export default VideoCollection;

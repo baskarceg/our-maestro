@@ -15,7 +15,7 @@ class Homepage extends Component {
         endofIndex: false,
         startofIndex: true,
         showCards: false,
-        showIntro:true
+        showIntro: true,
     }
 
     componentDidMount() {
@@ -58,8 +58,8 @@ class Homepage extends Component {
 
     showCardsHandler = () => {
         this.setState({
-            showCards:true,
-            showIntro:false
+            showCards: true,
+            showIntro: false
         })
     }
 
@@ -69,6 +69,7 @@ class Homepage extends Component {
         let something = null;
 
         if (this.state.cards && this.state.showCards) {
+            console.log(this.state.cards[this.state.index].data);
             something = (
                 <DescriptiveCard
                     name={this.state.cards[this.state.index].name}
@@ -91,11 +92,11 @@ class Homepage extends Component {
         return (
             <div>
                 <div >
-                    <div className={classes.Intro} style={{fontFamily:"Finger Paint"}} hidden={!this.state.showIntro}>
+                    <div className={classes.Intro} style={{ fontFamily: "Finger Paint" }} hidden={!this.state.showIntro}>
                         <h2>Who is this
-                         <img src="https://i.ibb.co/T86FM5z/48cdae97-eaa4-45a0-a90a-867fe5c8077d-200x200.png" className="d-inline-block align-top" alt="Maestro" loading="lazy"  />
+                         <img src="https://i.ibb.co/T86FM5z/48cdae97-eaa4-45a0-a90a-867fe5c8077d-200x200.png" className="d-inline-block align-top" alt="Maestro" loading="lazy" />
                         ? Do you want to find out?</h2>
-                        <button  type="button" class="btn btn-lg btn-outline-info" style={{marginTop:"4%"}} onClick={this.showCardsHandler}> Let's Find out</button>
+                        <button type="button" className="btn btn-lg btn-outline-info" style={{ marginTop: "4%" }} onClick={this.showCardsHandler}> Let's Find out</button>
                     </div>
                     <div className={classes.Horizondal} hidden={!this.state.showCards}>
                         <div className={classes.CustomButtonCSS}>

@@ -1,6 +1,5 @@
-.VideoCollection{
+.Friends{
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-    margin-top: 50px;
 }

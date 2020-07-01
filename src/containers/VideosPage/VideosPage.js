@@ -10,14 +10,19 @@ class VideosPage extends Component {
     state = {
         videos: null,
         page: 1,
-        numOfVideos: null
+        numOfVideos: null,
+        videosPerPage: 3,
+        videosLoaded: 0,
+        totalPages:null
     }
 
     componentDidMount() {
+
         console.log("Videospage Mounted");
+        console.log(this.state.videosLoaded);
         console.log(this.props);
         this.setState({
-            page : +this.props.match.params.id
+            page: +this.props.match.params.id
         });
         axios.get('videos.json')
             .then(response => {
@@ -27,7 +32,8 @@ class VideosPage extends Component {
                     size = size + 1;
                     return null;
                 })
-                this.setState({ numOfVideos: size });
+                let totalPages=size/this.state.videosPerPage;
+                this.setState({ numOfVideos: size , totalPages: Math.ceil(totalPages) });
                 console.log("Here");
                 console.log(this.state.numOfVideos);
             })
@@ -36,26 +42,55 @@ class VideosPage extends Component {
             });
     }
 
+    checkLoad = () => {
+        let newCount = this.state.videosLoaded + 1;
+        this.setState({ videosLoaded: newCount });
+        console.log("Success Funtion :" + this.state.videosLoaded);
+    }
+
     render() {
 
         let videos = <Spinner />;
+        let pagination = null;
+        console.log("currentPage:"+this.state.page);
+        console.log("totalPages:"+ this.state.totalPages);
+        if (this.state.videosLoaded === this.state.videosPerPage && this.state.page !== this.state.totalPages) {
+            pagination = <Pagination size={this.state.numOfVideos} currentPage={this.state.page} />;
+        }
+        if( this.state.videosLoaded !== this.state.videosPerPage && this.state.page===this.state.totalPages ){
+            pagination = <Pagination size={this.state.numOfVideos} currentPage={this.state.page} />;
+        }
         console.log("Outside" + this.state.numOfVideos);
         if (this.state.videos && this.state.numOfVideos) {
             console.log("Inside" + this.state.numOfVideos)
             videos = (
                 <div>
+
                     <VideoCollection
                         videos={this.state.videos}
                         numOfVideos={this.state.numOfVideos}
-                        currentPage={this.state.page} />
-                    <Pagination size={this.state.numOfVideos} currentPage={this.state.page} />
+                        currentPage={this.state.page}
+                        videosPerPage={this.state.videosPerPage}
+                        checkLoad={this.checkLoad} />
+
                 </div>
             );
         }
 
         return (
             <div className={classes.VideosPage}>
+                <div className="d-flex justify-content-between" style={{paddingTop:"0.5%"}}>
+                    <h3> Videos by Our Maestro</h3>
+                    <div className={classes.Horizondal}>
+                        {pagination}
+                    </div>    
+                </div>
+
+                <hr></hr>
                 {videos}
+                <div className={classes.Vertical}>
+                    {pagination}
+                </div>
             </div>
         );
     }

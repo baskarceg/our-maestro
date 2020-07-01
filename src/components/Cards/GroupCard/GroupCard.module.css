@@ -1,0 +1,13 @@
+.GroupCard{
+    width: 350px;
+    height: 250px;
+    margin : 50px auto;
+    overflow: hidden;
+    background-color: rgb(53, 49, 49);
+    border-radius: 25px;
+}
+
+.GroupCard:hover{
+    border: 2px solid hotpink;
+    cursor: pointer;
+}

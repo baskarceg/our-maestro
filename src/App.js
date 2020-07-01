@@ -15,17 +15,15 @@ import classes from './App.module.css';
 class App extends Component {
 
 
-  navigate = (param) => {
-    console.log(param);
-  }
-
   render() {
+    console.log("App");
+    console.log(window.location.pathname);
     return (
       <div>
-        <Navbar />
+        <Navbar path={window.location.pathname}/>
         <div className={classes.Content}>
           <Switch>
-            <Route path="/videos/:id" exact component={VideosPage} />
+            <Route path="/videos/:id" component={VideosPage} />
             <Route path="/home" component={HomePage} />
             <Route path="/about" component={About} />
             <Route path="/herWorld" component={HerWorld} />

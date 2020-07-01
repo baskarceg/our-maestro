@@ -3,7 +3,43 @@ import React from 'react';
 
 import classes from './Navbar.module.css';
 
-const navbar = () => {
+const navbar = (props) => {
+
+  let homeClass = ["nav-item"];
+  let aboutClass = ["nav-item"];
+  let worldClass = ["nav-item"];
+  let familyClass = ["nav-item"];
+  let friendsClass = ["nav-item"];
+  let discoClass = ["nav-item"];
+
+  console.log("Navbar");
+  console.log(props.path);
+
+  switch (props.path) {
+    case "/":
+      homeClass.push("active");
+      break;
+    case "/home":
+      homeClass.push("active");
+      break;
+    case "/about":
+      aboutClass.push("active");
+      break;
+    case "/herWorld":
+      worldClass.push("active");
+      break;
+    case "/family":
+      familyClass.push("active");
+      break;
+    case "/friends":
+      friendsClass.push("active");
+      break;
+    default:
+      discoClass.push("active");
+      break;
+
+  }
+
   return (
     <div className={classes.Navbar}>
       <nav className="navbar navbar-expand-lg navbar-light fixed-top" style={{ backgroundColor: "#ff0048" }}>
@@ -16,22 +52,22 @@ const navbar = () => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
+            <li className={homeClass.join(' ')} >
               <a className="nav-link" href="/home">Home</a>
             </li>
-            <li className="nav-item">
+            <li className={aboutClass.join(' ')} >
               <a className="nav-link" href="/about">About Mestro</a>
             </li>
-            <li className="nav-item">
+            <li className={worldClass.join(' ')}>
               <a className="nav-link" href="/herWorld">Maestro's World</a>
             </li>
-            <li className="nav-item">
+            <li className={familyClass.join(' ')}>
               <a className="nav-link" href="/family">Family</a>
             </li>
-            <li className="nav-item">
+            <li className={friendsClass.join(' ')}>
               <a className="nav-link" href="/friends">Friends</a>
             </li>
-            <li className="nav-item">
+            <li className={discoClass.join(' ')}>
               <a className="nav-link" href="/videos/1" > Discography </a>
             </li>
           </ul>

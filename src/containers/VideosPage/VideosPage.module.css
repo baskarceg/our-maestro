@@ -2,3 +2,24 @@
     width: 90%;
     margin: auto;
 }
+
+.VideosPage h3{
+    font-family: "Finger Paint";
+}
+
+.Horizondal{
+    display: inline;
+}
+
+.Vertical{
+    display: none;
+}
+
+@media ( max-width : 480px) {
+    .Horizondal{
+        display: none;
+    }
+    .Vertical{
+        display: inline;
+    }
+}

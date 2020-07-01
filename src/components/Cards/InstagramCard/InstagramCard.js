@@ -13,7 +13,7 @@ const instagramCard = (props) => {
                 protocol=''
                 injectScript
                 onLoading={() => { }}
-                onSuccess={() => { }}
+                onSuccess={props.getSuccess}
                 onAfterRender={() => { }}
                 onFailure={() => { }}
             />

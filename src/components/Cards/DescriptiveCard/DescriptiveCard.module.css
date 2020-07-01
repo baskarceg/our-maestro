@@ -10,10 +10,9 @@
     background-color: #bcacc3;
 }
 
-.DescriptiveCard h3{
-    font-family: "Finger Paint";
+.Para{
+    white-space: pre-line;
 }
-
 .DescriptiveCard:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
