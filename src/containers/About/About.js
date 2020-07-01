@@ -64,9 +64,9 @@ class About extends Component {
 
     returnHandler = () => {
         this.setState({
-            displayTestimonial:false,
-            displayGroup:true,
-            currentGroup:null
+            displayTestimonial: false,
+            displayGroup: true,
+            currentGroup: null
         })
     }
 
@@ -124,19 +124,29 @@ class About extends Component {
                 <div className={classes.Group} hidden={!this.state.displayGroup}>
                     {groups}
                 </div>
-                <div hidden={!this.state.displayTestimonial} style={{ paddingLeft: "3%", paddingRight: "3%" }}>
+                <div hidden={!this.state.displayTestimonial} style={{ paddingLeft: "3%", paddingRight: "3%"}}>
                     <div className="d-flex justify-content-between" >
                         <h3 style={{ fontFamily: "Finger Paint" }}> {this.state.currentGroup}</h3>
+                        <div className={classes.WebButton}>
+                            <button
+                                type="button"
+                                onClick={this.returnHandler}
+                                className="btn btn-outline-dark">
+                                Back
+                            </button>
+                        </div>
+                    </div>
+                    <hr></hr>
+                    <div className={classes.Testimonial} hidden={!this.state.displayTestimonial}>
+                        {testimonials}
+                    </div>
+                    <div className={classes.MobileButton} >
                         <button
                             type="button"
                             onClick={this.returnHandler}
                             className="btn btn-outline-dark">
                             Back
                             </button>
-                    </div>
-                    <hr></hr>
-                    <div className={classes.Testimonial} hidden={!this.state.displayTestimonial}>
-                        {testimonials}
                     </div>
                 </div>
             </div>

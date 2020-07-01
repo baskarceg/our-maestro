@@ -34,6 +34,10 @@
     align-items: center;
 }
 
+.MobileButton{
+  display: none;
+}
+
 @media (max-width : 480px) {
     .Intro{
       margin: 200px auto;
@@ -45,5 +49,12 @@
     }
     .Intro img{
       width: 200px;
+    }
+    .WebButton{
+      display: none;
+    }
+    .MobileButton{
+      display: inline;
+      margin-left: 40%;
     }
   }

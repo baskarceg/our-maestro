@@ -11,3 +11,9 @@
     border: 2px solid hotpink;
     cursor: pointer;
 }
+
+@media(min-width : 480px){
+    .GroupCard{
+        height: 250px;
+    }
+}
