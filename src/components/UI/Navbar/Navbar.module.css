@@ -1,7 +1,8 @@
 .Navbar{
     font-family: "Finger Paint";
+    font-size: 18px;
 }
 
-.Navbar a{
+.Navbar a.active{
     color: yellow;
 }

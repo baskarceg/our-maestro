@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from '../../axios_orders';
 import GroupCard from '../../components/Cards/GroupCard/GroupCard';
 import classes from './Friends.module.css';
+import FamilyCard from '../../components/Cards/FamilyCard/FamilyCard';
 
 class Friends extends Component {
 
@@ -10,7 +11,8 @@ class Friends extends Component {
         groups: null,
         displayGroup: true,
         currentGroup: null,
-        displayFriends: false
+        displayFriends: false,
+        friends: null
     }
 
     componentDidMount() {
@@ -21,6 +23,15 @@ class Friends extends Component {
             })
             .catch(error => {
                 console.log("Group fetch failed");
+            });
+
+        axios.get('friends.json')
+            .then(response => {
+                console.log(response);
+                this.setState({ friends: response.data })
+            })
+            .catch(error => {
+                console.log("Friends fetch failed");
             });
     }
 
@@ -40,6 +51,14 @@ class Friends extends Component {
             displayFriends: true
         })
     }
+
+    returnHandler = () =>{
+        this.setState({
+            displayFriends:false,
+            displayGroup:true,
+            currentGroup:null
+        })
+    }
     render() {
         let groups = null;
 
@@ -56,9 +75,25 @@ class Friends extends Component {
             })
         }
 
+        let friends = null;
+
+        if (this.state.currentGroup) {
+            friends = this.state.friends.map((friend, index) => {
+                if (friend.group.includes(this.state.currentGroup)) {
+                    return <FamilyCard
+                        key={index}
+                        name={friend.name}
+                        groupPhotoSrc={friend.image} />
+                }
+                else {
+                    return null;
+                }
+            })
+        }
+
         return (
             <div >
-                <div className={classes.Friends} hidden={!this.state.displayGroup}>
+                <div className={classes.Groups} hidden={!this.state.displayGroup}>
                     {groups}
                 </div>
                 <div hidden={!this.state.displayFriends} style={{ paddingLeft: "3%", paddingRight: "3%" }}>
@@ -74,7 +109,8 @@ class Friends extends Component {
                         </div>
                     </div>
                     <hr></hr>
-                    <div className={classes.Testimonial}>
+                    <div className={classes.FriendsContent}>
+                        {friends}
                     </div>
                     <div className={classes.MobileButton} >
                         <button

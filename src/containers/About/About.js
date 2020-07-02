@@ -4,6 +4,7 @@ import classes from './About.module.css';
 import axios from '../../axios_orders';
 import QuoteCard from '../../components/Cards/QuoteCard/QuoteCard';
 import GroupCard from '../../components/Cards/GroupCard/GroupCard';
+import NotepaperQuote from '../../components/UI/NotepaperQuote/NotepaperQuote';
 
 class About extends Component {
 
@@ -90,10 +91,9 @@ class About extends Component {
             testimonials = this.state.testimonials.map((testimonial, index) => {
                 if (testimonial) {
                     if (testimonial.groupName.includes(this.state.currentGroup)) {
-                        return <QuoteCard
+                        return <NotepaperQuote
                             key={index}
                             by={testimonial.name}
-                            group={this.state.currentGroup}
                             content={testimonial.modContent}
                         />
                     }

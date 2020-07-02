@@ -16,6 +16,8 @@ class App extends Component {
 
 
   render() {
+    // console.log("App");
+    // console.log(window.location.pathname);
     return (
       <div>
         <Navbar path={window.location.pathname}/>

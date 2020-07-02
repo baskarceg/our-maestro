@@ -1,6 +1,27 @@
-.Friends{
+.Groups{
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
     margin: 10px 50px 10px;
+}
+
+.FriendsContent{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+
+.MobileButton{
+    display: none;
+}
+
+@media(max-width:480px){
+    .MobileButton{
+        display: inline;
+        margin-left: 40%;
+    }
+
+    .WebButton{
+        display: none;
+    }
 }
