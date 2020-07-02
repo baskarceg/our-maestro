@@ -49,6 +49,7 @@ class VideosPage extends Component {
         console.log(this.state);
 
         let videos = <Spinner />;
+        
         let pagination = null;
         if (this.state.videosLoaded === this.state.videosPerPage && this.state.page !== this.state.totalPages) {
             pagination = <Pagination size={this.state.numOfVideos} currentPage={this.state.page} />;
@@ -56,7 +57,7 @@ class VideosPage extends Component {
         if( this.state.videosLoaded !== this.state.videosPerPage && this.state.page===this.state.totalPages ){
             pagination = <Pagination size={this.state.numOfVideos} currentPage={this.state.page} />;
         }
-        if (this.state.videos && this.state.numOfVideos) {
+        if (this.state.videos && this.state.numOfVideos  ) {
             videos = (
                 <div>
 
