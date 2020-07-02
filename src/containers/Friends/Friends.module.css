@@ -2,7 +2,8 @@
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-    margin: 10px 50px 10px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .FriendsContent{
