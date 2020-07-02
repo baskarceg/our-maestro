@@ -6,9 +6,6 @@ const pagination = (props) => {
     let pages = [];
     let noOfPages = Math.ceil(props.size / 3);
 
-    console.log(noOfPages);
-    console.log(props.currentPage);
-
     if (noOfPages !== null && props.currentPage !== null) {
         if (props.currentPage !== 1) {
             pages.push(<Page key="prev" id={props.currentPage - 1} value="Previous" />)

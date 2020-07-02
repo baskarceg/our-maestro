@@ -11,10 +11,7 @@ const navbar = (props) => {
   let familyClass = ["nav-item"];
   let friendsClass = ["nav-item"];
   let discoClass = ["nav-item"];
-
-  console.log("Navbar");
-  console.log(props.path);
-
+  
   switch (props.path) {
     case "/":
       homeClass.push("active");

@@ -19,8 +19,6 @@ class VideosPage extends Component {
     componentDidMount() {
 
         console.log("Videospage Mounted");
-        console.log(this.state.videosLoaded);
-        console.log(this.props);
         this.setState({
             page: +this.props.match.params.id
         });
@@ -34,8 +32,6 @@ class VideosPage extends Component {
                 })
                 let totalPages=size/this.state.videosPerPage;
                 this.setState({ numOfVideos: size , totalPages: Math.ceil(totalPages) });
-                console.log("Here");
-                console.log(this.state.numOfVideos);
             })
             .catch(error => {
                 console.log("Will it come here");
@@ -45,24 +41,22 @@ class VideosPage extends Component {
     checkLoad = () => {
         let newCount = this.state.videosLoaded + 1;
         this.setState({ videosLoaded: newCount });
-        console.log("Success Funtion :" + this.state.videosLoaded);
+        console.log("videos Loaded:" + this.state.videosLoaded);
     }
 
     render() {
 
+        console.log(this.state);
+
         let videos = <Spinner />;
         let pagination = null;
-        console.log("currentPage:"+this.state.page);
-        console.log("totalPages:"+ this.state.totalPages);
         if (this.state.videosLoaded === this.state.videosPerPage && this.state.page !== this.state.totalPages) {
             pagination = <Pagination size={this.state.numOfVideos} currentPage={this.state.page} />;
         }
         if( this.state.videosLoaded !== this.state.videosPerPage && this.state.page===this.state.totalPages ){
             pagination = <Pagination size={this.state.numOfVideos} currentPage={this.state.page} />;
         }
-        console.log("Outside" + this.state.numOfVideos);
         if (this.state.videos && this.state.numOfVideos) {
-            console.log("Inside" + this.state.numOfVideos)
             videos = (
                 <div>
 

@@ -21,7 +21,6 @@ class About extends Component {
 
         axios.get('groups.json')
             .then(response => {
-                console.log(response);
                 this.setState({ groups: response.data });
             })
             .catch(error => {
@@ -30,7 +29,6 @@ class About extends Component {
 
         axios.get('testimonials.json')
             .then(response => {
-                console.log(response);
                 this.setState({ testimonials: response.data });
             })
             .catch(error => {
@@ -88,16 +86,10 @@ class About extends Component {
             })
         }
 
-        console.log(this.state.testimonials);
-
         if (this.state.testimonials && this.state.currentGroup) {
             testimonials = this.state.testimonials.map((testimonial, index) => {
-                console.log(index);
                 if (testimonial) {
-                    console.log(typeof testimonial.groupName);
-                    console.log(typeof this.state.currentGroup);
                     if (testimonial.groupName.includes(this.state.currentGroup)) {
-                        console.log(testimonial);
                         return <QuoteCard
                             key={index}
                             by={testimonial.name}

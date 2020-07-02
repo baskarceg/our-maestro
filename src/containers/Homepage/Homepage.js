@@ -74,7 +74,7 @@ class Homepage extends Component {
                 <DescriptiveCard
                     name={this.state.cards[this.state.index].name}
                     data={this.state.cards[this.state.index].data}
-                    imageUrl={this.state.cards[this.state.index].url} />
+                    imageUrl={this.state.cards[this.state.index].bigUrl} />
             );
         }
 
@@ -85,7 +85,7 @@ class Homepage extends Component {
                 return <MinimalCard key={index}
                     title={card.name}
                     link={card.url}
-                    content={card.data} />
+                    content={card.shortData} />
             })
         }
 

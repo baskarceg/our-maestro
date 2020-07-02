@@ -4,21 +4,9 @@ import InstagramCard from '../../Cards/InstagramCard/InstagramCard';
 import classes from './VideoCollection.module.css';
 
 class VideoCollection extends Component {
-
-    state={
-        videosLoaded : 0
-    }
-
-    getSuccess = () => {
-        let increaseCount = this.state.videosLoaded + 1;
-        this.setState({videosLoaded:increaseCount});
-        console.log(this.state.videosLoaded);
-    }
-
     render(){
     let instaVideos = null;
     let videosPerPage = this.props.videosPerPage;
-    console.log("Page"+ this.props.currentPage);
     let startIndex = (this.props.currentPage -1 ) * videosPerPage;
     let endIndex = ( this.props.currentPage ) * videosPerPage;
     if(this.props.videos !== null){
@@ -27,7 +15,7 @@ class VideoCollection extends Component {
                 return <InstagramCard key={id} link={video.link} getSuccess={this.props.checkLoad}/>;
             }     
             return null;
-        }) 
+        })
     }
 
     return (

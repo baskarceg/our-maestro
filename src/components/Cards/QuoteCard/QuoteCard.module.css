@@ -4,7 +4,7 @@
     padding: 3%;
     margin: 20px auto 20px;
     box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
-    background-color: rgb(135, 170, 235);
+    background-color: rgb(199, 216, 246);
 }
 
 @media (max-width : 480px) {

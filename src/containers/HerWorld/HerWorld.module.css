@@ -1,0 +1,36 @@
+.HerWorld{
+    font-family: "Finger Paint";
+}
+
+.Content{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    padding: 1% 4%;
+}
+
+.Content img{
+    width: 350px;
+    height: 250px;
+    box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
+}
+
+.Content .Paragraph{
+    border: red;
+
+    padding: 20px;
+    width: 70%;
+    word-wrap: break-word;
+}
+
+@media(max-width : 480px) {
+    .Content img{
+        width: 70%;
+        height: auto;
+       margin: auto;
+    }
+
+    .Content .Paragraph{
+        width: 100%;
+    }
+}

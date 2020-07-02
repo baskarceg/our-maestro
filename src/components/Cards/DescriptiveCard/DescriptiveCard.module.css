@@ -73,6 +73,7 @@
     margin-bottom: 20px;
     margin-left: 20px;
     word-wrap: break-word;
+    overflow: hidden;
 }
 
 .ContentBorder {
