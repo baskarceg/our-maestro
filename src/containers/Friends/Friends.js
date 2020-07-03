@@ -4,6 +4,8 @@ import axios from '../../axios_orders';
 import GroupCard from '../../components/Cards/GroupCard/GroupCard';
 import classes from './Friends.module.css';
 import FamilyCard from '../../components/Cards/FamilyCard/FamilyCard';
+import DetailsPage from '../../components/UI/DetailsPage/DetailsPage';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 class Friends extends Component {
 
@@ -12,7 +14,12 @@ class Friends extends Component {
         displayGroup: true,
         currentGroup: null,
         displayFriends: false,
-        friends: null
+        friends: null,
+        displayFriendDetails: false,
+        currentFriend: null,
+        testimonials: null,
+        currentFriendTestimonial: null,
+        currentFriendData: null
     }
 
     componentDidMount() {
@@ -33,6 +40,14 @@ class Friends extends Component {
             .catch(error => {
                 console.log("Friends fetch failed");
             });
+
+        axios.get('testimonials.json')
+            .then(response => {
+                this.setState({ testimonials: response.data });
+            })
+            .catch(error => {
+                console.log("Testimonials fetch failed");
+            });
     }
 
     groupClickedHandler = (groupId) => {
@@ -52,15 +67,40 @@ class Friends extends Component {
         })
     }
 
-    returnHandler = () =>{
+    returnHandler = () => {
         this.setState({
-            displayFriends:false,
-            displayGroup:true,
-            currentGroup:null
+            displayFriends: false,
+            displayGroup: true,
+            currentGroup: null
+        })
+    }
+
+    handleFriendClicked = (friendName) => {
+        console.log(friendName);
+        this.state.testimonials.map((testimonial, index) => {
+            console.log(testimonial.name);
+            if (testimonial.name === friendName) {
+                console.log(testimonial);
+                this.setState({
+                    currentFriendTestimonial: testimonial,
+                    currentFriend: friendName,
+                    displayFriends: false,
+                    displayFriendDetails: true
+                })
+            }
+            return null;
+        })
+        this.state.friends.map((friend, index) => {
+            console.log(friend.name);
+            if (friend.name === friendName) {
+                console.log(friend.name);
+                this.setState({ currentFriendData: friend });
+            }
+            return null;
         })
     }
     render() {
-        let groups = null;
+        let groups = <Spinner />;
 
         if (this.state.groups) {
             groups = this.state.groups.map((group, index) => {
@@ -77,18 +117,28 @@ class Friends extends Component {
 
         let friends = null;
 
-        if (this.state.currentGroup) {
+        if (this.state.currentGroup && this.state.friends) {
             friends = this.state.friends.map((friend, index) => {
                 if (friend.group.includes(this.state.currentGroup)) {
                     return <FamilyCard
                         key={index}
                         name={friend.name}
-                        groupPhotoSrc={friend.image} />
+                        groupPhotoSrc={friend.image}
+                        photoClicked={this.handleFriendClicked} />
                 }
                 else {
                     return null;
                 }
             })
+        }
+
+        let friendDetails = null;
+
+        if (this.state.currentFriendTestimonial && this.state.currentFriendData) {
+            friendDetails = <DetailsPage
+                type="friends"
+                friend={this.state.currentFriendData}
+                testimonial={this.state.currentFriendTestimonial} />
         }
 
         return (
@@ -121,9 +171,10 @@ class Friends extends Component {
                     </button>
                     </div>
                 </div>
+                <div className={classes.Details} hidden={!this.state.displayFriendDetails}>
+                    {friendDetails}
+                </div>
             </div>
-
-
         );
     }
 }

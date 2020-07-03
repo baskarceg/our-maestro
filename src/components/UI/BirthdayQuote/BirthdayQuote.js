@@ -10,7 +10,7 @@ const birthdayQuote = (props) => {
                         “
                     </p>
                     <p className={classes.quotetext}>
-                    😀😃😄😁😆😅😂🤣☺️😊😇🙂🙃😉😌😍🥰😘😗😙😚😋
+                    {props.content}
                     </p>
                 </blockquote>
             </div>

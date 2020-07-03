@@ -32,8 +32,14 @@ class Family extends Component {
             })
         }
         return (
-            <div className={classes.Family}>
+            <div >
+                <div className={classes.Heading}>
+                    <h4 >Meastro's Sweet Little Kingdom</h4>
+                    <hr />
+                </div>
+                <div className={classes.Family}>
                 {familyMembers}
+                </div>
             </div>
         );
     }

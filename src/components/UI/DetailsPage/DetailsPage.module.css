@@ -1,0 +1,15 @@
+
+.Quote{
+    margin: auto;
+}
+
+.Pics{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+
+.Heading{
+    font-family: "Finger Paint";
+    padding-left: 2%;
+}

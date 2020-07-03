@@ -2,5 +2,21 @@
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-    
+    margin: auto;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.Heading{
+    font-family: "Finger Paint";
+    padding: 3%;
+}
+
+@media (max-width:480px){
+    .Heading h4{
+        font-size: 1.3rem;
+    }
+    .Heading{
+        padding: 2%;
+    }
 }

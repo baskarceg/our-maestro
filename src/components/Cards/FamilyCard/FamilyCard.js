@@ -4,7 +4,7 @@ import classes from './FamilyCard.module.css';
 
 const familyCard = (props) => {
     return (
-        <div className={classes.FamilyCard}>
+        <div className={classes.FamilyCard} onClick={() => props.photoClicked(props.name)}>
             <div className="card bg-dark text-white" >
                 <img className="img-fluid" src={props.groupPhotoSrc} alt="" />
                 <div className="card-img-overlay">
