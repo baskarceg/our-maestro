@@ -26,6 +26,8 @@
     
     font-size: 19px;
     margin-top: -65px;
+
+    white-space: pre-line;
 }
 
 @media(max-width : 480px) {
