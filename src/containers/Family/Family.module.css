@@ -14,9 +14,9 @@
 
 @media (max-width:480px){
     .Heading h4{
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     .Heading{
-        padding: 2%;
+        padding: 3%;
     }
 }

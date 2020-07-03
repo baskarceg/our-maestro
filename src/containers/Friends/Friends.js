@@ -98,6 +98,7 @@ class Friends extends Component {
             }
             return null;
         })
+        window.scrollTo(0,0);
     }
     render() {
         let groups = <Spinner />;
@@ -146,7 +147,8 @@ class Friends extends Component {
                 <div className={classes.Groups} hidden={!this.state.displayGroup}>
                     {groups}
                 </div>
-                <div hidden={!this.state.displayFriends} style={{ paddingLeft: "3%", paddingRight: "3%" }}>
+                <div hidden={!this.state.displayFriends} 
+                        style={{ paddingLeft: "3%", paddingRight: "3%",marginBottom:"20px" }}>
                     <div className="d-flex justify-content-between" >
                         <h3 style={{ fontFamily: "Finger Paint" }}> {this.state.currentGroup}</h3>
                         <div className={classes.WebButton}>

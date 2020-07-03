@@ -5,6 +5,12 @@
     margin: 10px;
     border-radius: 25px;
     overflow: hidden;
+    cursor: pointer;
+}
+
+.FamilyCard:hover{
+    border-color: royalblue;
+    box-shadow: 0 0 5px 5px rgba(48, 38, 179, 0.35);
 }
 
 @media ( max-width : 480px ){

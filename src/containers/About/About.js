@@ -108,14 +108,21 @@ class About extends Component {
 
         return (
             <div className={classes.About} >
-                <div className={classes.Intro} style={{ fontFamily: "Finger Paint" }} hidden={!this.state.displayTitle}>
+                <div className={classes.Intro}
+                    style={{ fontFamily: "Finger Paint" }}
+                    hidden={!this.state.displayTitle}>
                     <h2> Oh!! Are you curious  ?</h2>
-                    <button type="button" className="btn btn-lg btn-outline-info" style={{ marginTop: "4%" }} onClick={this.showGroupsHandler}> Check it out</button>
+                    <button type="button" 
+                    className="btn btn-lg btn-outline-info" 
+                    style={{ marginTop: "4%" }} 
+                    onClick={this.showGroupsHandler}> Check it out</button>
                 </div>
                 <div className={classes.Group} hidden={!this.state.displayGroup}>
                     {groups}
                 </div>
-                <div hidden={!this.state.displayTestimonial} style={{ paddingLeft: "3%", paddingRight: "3%"}}>
+                <div 
+                hidden={!this.state.displayTestimonial} 
+                style={{ paddingLeft: "3%", paddingRight: "3%",marginBottom:"30px" }}>
                     <div className="d-flex justify-content-between" >
                         <h3 style={{ fontFamily: "Finger Paint" }}> {this.state.currentGroup}</h3>
                         <div className={classes.WebButton}>
