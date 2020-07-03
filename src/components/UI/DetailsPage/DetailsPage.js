@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './DetailsPage.module.css';
 import BirthdayQuote from '../BirthdayQuote/BirthdayQuote';
 import Image from '../Image/Image';
+import Spinner from '../Spinner/Spinner';
 
 const detailsPage = (props) => {
     let showQuote = null;
@@ -11,6 +12,26 @@ const detailsPage = (props) => {
     else {
         showQuote = false;
     }
+    let images = <Spinner />;
+
+    if(props.friend.pics){
+        let imagesArray = props.friend.pics.split(',');
+        images = imagesArray.map(image =>{
+            return <Image photoSrc={image} />
+        })
+    }
+    else{
+        images = (
+            <div>
+                <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
+                    <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
+                    <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
+                    <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
+                    <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
+            </div>
+        );
+    }
+
     return (
         <div className={classes.DetailsPage}>
             <div hidden={!showQuote}>
@@ -45,11 +66,7 @@ const detailsPage = (props) => {
                     <hr />
                 </div>
                 <div className={classes.Pics}>
-                    <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
-                    <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
-                    <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
-                    <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
-                    <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
+                    {images}
                 </div>
             </div>
         </div>
