@@ -50,16 +50,8 @@ class Friends extends Component {
             });
     }
 
-    groupClickedHandler = (groupId) => {
-        let groupName = null;
-        console.log(groupId);
-        this.state.groups.map(group => {
-            if (group.identifier === groupId) {
-                groupName = group.name;
-            }
-            return null;
-        })
-        console.log(groupName);
+    groupClickedHandler = (groupName) => {
+        window.scrollTo(0,0);
         this.setState({ currentGroup: groupName });
         this.setState({
             displayGroup: false,
@@ -68,14 +60,26 @@ class Friends extends Component {
     }
 
     returnHandler = () => {
+        window.scrollTo(0,0);
         this.setState({
             displayFriends: false,
             displayGroup: true,
-            currentGroup: null
+            currentGroup: null,
+            currentFriendTestimonial:null
+        })
+    }
+
+    goBackFriendsHandler = () => {
+        window.scrollTo(0,0);
+        this.setState({
+            displayFriends:true,
+            displayFriendDetails:false,
+            currentFriend:null
         })
     }
 
     handleFriendClicked = (friendName) => {
+        window.scrollTo(0,0);
         console.log(friendName);
         this.state.testimonials.map((testimonial, index) => {
             console.log(testimonial.name);
@@ -95,10 +99,10 @@ class Friends extends Component {
             if (friend.name === friendName) {
                 console.log(friend.name);
                 this.setState({ currentFriendData: friend });
+                window.scrollTo(0,0);
             }
             return null;
         })
-        window.scrollTo(0,0);
     }
     render() {
         let groups = <Spinner />;
@@ -110,7 +114,6 @@ class Friends extends Component {
                     groupName={group.name}
                     groupPhotoSrc={group.imageUrl}
                     groupPhotoShortSrc={group.verticalImageUrl}
-                    groupIdentifier={group.identifier}
                     groupClicked={this.groupClickedHandler}
                 />
             })
@@ -139,7 +142,8 @@ class Friends extends Component {
             friendDetails = <DetailsPage
                 type="friends"
                 friend={this.state.currentFriendData}
-                testimonial={this.state.currentFriendTestimonial} />
+                testimonial={this.state.currentFriendTestimonial} 
+                goBack={this.goBackFriendsHandler}/>
         }
 
         return (

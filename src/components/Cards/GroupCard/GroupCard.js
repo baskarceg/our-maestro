@@ -4,7 +4,7 @@ import classes from './GroupCard.module.css';
 
 const groupCard = (props) => {
     return (
-        <div className={classes.GroupCard} onClick={() => props.groupClicked(props.groupIdentifier)}>
+        <div className={classes.GroupCard} onClick={() => props.groupClicked(props.groupName)}>
             <div className="card bg-dark text-white" >
                 <img className="img-fluid" src={props.groupPhotoSrc} alt="" />
                 <div className="card-img-overlay">

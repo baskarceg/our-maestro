@@ -32,6 +32,6 @@
 
 @media(max-width : 480px) {
     .quotebox{
-        width: 350px;
+        width: 95%;
     }
 }

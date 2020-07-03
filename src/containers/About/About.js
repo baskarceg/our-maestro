@@ -37,21 +37,15 @@ class About extends Component {
     }
 
     showGroupsHandler = () => {
+        window.scrollTo(0,0);
         this.setState({
             displayTitle: false,
             displayGroup: true
         })
     }
 
-    groupClickedHandler = (groupId) => {
-        let groupName = null;
-        console.log(groupId);
-        this.state.groups.map(group => {
-            if (group.identifier === groupId) {
-                groupName = group.name;
-            }
-            return null;
-        })
+    groupClickedHandler = (groupName) => {
+        window.scrollTo(0,0);
         console.log(groupName);
         this.setState({ currentGroup: groupName });
         this.setState({
@@ -61,6 +55,7 @@ class About extends Component {
     }
 
     returnHandler = () => {
+        window.scrollTo(0,0);
         this.setState({
             displayTestimonial: false,
             displayGroup: true,
@@ -80,7 +75,6 @@ class About extends Component {
                     groupName={group.name}
                     groupPhotoSrc={group.imageUrl}
                     groupPhotoShortSrc={group.verticalImageUrl}
-                    groupIdentifier={group.identifier}
                     groupClicked={this.groupClickedHandler}
                 />
             })

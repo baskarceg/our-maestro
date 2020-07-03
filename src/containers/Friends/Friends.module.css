@@ -11,6 +11,8 @@
     flex-flow: row;
     flex-wrap: wrap;
     margin-bottom: 15px;
+    width: 95%;
+    margin: auto;
 }
 
 .MobileButton{

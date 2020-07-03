@@ -15,7 +15,17 @@ const detailsPage = (props) => {
         <div className={classes.DetailsPage}>
             <div hidden={!showQuote}>
                 <div className={classes.Heading}>
-                    <h4 >{props.testimonial.name}</h4>
+                    <div className="d-flex justify-content-between">
+                    <h4 >{props.testimonial.name}'s Message</h4>
+                    <div className={classes.WebButton}>
+                            <button
+                                type="button"
+                                onClick={props.goBack}
+                                className="btn btn-outline-dark">
+                                Back
+                            </button>
+                        </div>
+                    </div>
                     <hr />
                 </div>
                 <div className={classes.Quote} >
@@ -23,6 +33,10 @@ const detailsPage = (props) => {
                 </div>
             </div>
             <div className={classes.Content}>
+            <div className={classes.Heading}>
+                    <h4 >Whos's {props.testimonial.name}?</h4>
+                    <hr />
+                </div>
                 Some Content
             </div>
             <div className={classes.More}>
