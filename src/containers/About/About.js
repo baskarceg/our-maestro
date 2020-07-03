@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import classes from './About.module.css';
 import axios from '../../axios_orders';
-import QuoteCard from '../../components/Cards/QuoteCard/QuoteCard';
 import GroupCard from '../../components/Cards/GroupCard/GroupCard';
 import NotepaperQuote from '../../components/UI/NotepaperQuote/NotepaperQuote';
 

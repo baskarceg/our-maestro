@@ -11,7 +11,6 @@ import Family from './containers/Family/Family';
 import About from './containers/About/About';
 import classes from './App.module.css';
 
-
 class App extends Component {
 
 

@@ -10,7 +10,7 @@ class VideoCollection extends Component {
     let startIndex = (this.props.currentPage -1 ) * videosPerPage;
     let endIndex = ( this.props.currentPage ) * videosPerPage;
     if(this.props.videos !== null){
-        instaVideos = this.props.videos.map((video,id)=> {
+        instaVideos = this.props.videos.slice(0).reverse().map((video,id)=> {
             if( id >= startIndex && id < endIndex){
                 return <InstagramCard key={id} link={video.link} getSuccess={this.props.checkLoad}/>;
             }     
