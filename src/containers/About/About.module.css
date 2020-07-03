@@ -56,5 +56,6 @@
     .MobileButton{
       display: inline;
       margin-left: 40%;
+      padding: 1%;
     }
   }
