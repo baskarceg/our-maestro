@@ -14,20 +14,26 @@ const detailsPage = (props) => {
     }
     let images = <Spinner />;
 
-    if(props.friend.pics){
+    let showImage = null;
+
+    if (props.friend.name === "Rayani") {
+        showImage = true;
+    }
+
+    if (props.friend.pics) {
         let imagesArray = props.friend.pics.split(',');
-        images = imagesArray.map(image =>{
+        images = imagesArray.map(image => {
             return <Image photoSrc={image} />
         })
     }
-    else{
+    else {
         images = (
             <div>
                 <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
-                    <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
-                    <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
-                    <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
-                    <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
+                <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
+                <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
+                <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
+                <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
             </div>
         );
     }
@@ -37,8 +43,8 @@ const detailsPage = (props) => {
             <div hidden={!showQuote}>
                 <div className={classes.Heading}>
                     <div className="d-flex justify-content-between">
-                    <h4 >{props.testimonial.name}'s Message</h4>
-                    <div className={classes.WebButton}>
+                        <h4 >{props.testimonial.name}'s Message</h4>
+                        <div className={classes.WebButton}>
                             <button
                                 type="button"
                                 onClick={props.goBack}
@@ -52,9 +58,14 @@ const detailsPage = (props) => {
                 <div className={classes.Quote} >
                     <BirthdayQuote content={props.testimonial.content} />
                 </div>
+                <div hidden={!showImage} className={classes.Flashback}>
+                    <div className="card bg-dark text-white" >
+                        <img className="img-fluid" src="https://i.ibb.co/QdY1shH/IMG-20200702-WA0019.jpg" alt="" />
+                    </div>
+                </div>
             </div>
             <div className={classes.Content}>
-            <div className={classes.Heading}>
+                <div className={classes.Heading}>
                     <h4 >Whos's {props.testimonial.name}?</h4>
                     <hr />
                 </div>

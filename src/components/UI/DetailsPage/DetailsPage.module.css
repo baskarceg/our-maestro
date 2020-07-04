@@ -21,3 +21,15 @@
     width: 100%;
     margin: auto;
 }
+
+.Flashback{
+    width: 800px;
+    margin: 40px auto;
+
+}
+
+@media(max-width:480px){
+    .Flashback{
+        width: 95%;
+    }
+}

@@ -154,7 +154,7 @@ class Friends extends Component {
                 <div hidden={!this.state.displayFriends} 
                         style={{ paddingLeft: "3%", paddingRight: "3%",marginBottom:"20px" }}>
                     <div className="d-flex justify-content-between" >
-                        <h3 style={{ fontFamily: "Finger Paint" }}> {this.state.currentGroup}</h3>
+                        <h3 style={{ fontFamily: "Finger Paint" ,fontSize:"1.5rem" }}> {this.state.currentGroup}</h3>
                         <div className={classes.WebButton}>
                             <button
                                 type="button"
@@ -168,14 +168,7 @@ class Friends extends Component {
                     <div className={classes.FriendsContent}>
                         {friends}
                     </div>
-                    <div className={classes.MobileButton} >
-                        <button
-                            type="button"
-                            onClick={this.returnHandler}
-                            className="btn btn-outline-dark">
-                            Back
-                    </button>
-                    </div>
+
                 </div>
                 <div className={classes.Details} hidden={!this.state.displayFriendDetails}>
                     {friendDetails}

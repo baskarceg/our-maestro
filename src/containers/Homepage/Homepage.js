@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 import classes from './Homepage.module.css';
-import DescriptiveCard from '../../components/Cards/DescriptiveCard/DescriptiveCard';
 import axios from '../../axios_orders';
-import CustomButton from '../../components/UI/Button/CustomButton';
 import MinimalCard from '../../components/Cards/MinimalCard/MinimalCard';
+import HoverCard from '../../components/Cards/HoverCard/HoverCard';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 
 class Homepage extends Component {
@@ -66,28 +66,100 @@ class Homepage extends Component {
 
     render() {
 
-        let something = null;
+        // let something = null;
+
+        // if (this.state.cards && this.state.showCards) {
+        //     console.log(this.state.cards[this.state.index].data);
+        //     something = (
+        //         <DescriptiveCard
+        //             name={this.state.cards[this.state.index].name}
+        //             data={this.state.cards[this.state.index].data}
+        //             imageUrl={this.state.cards[this.state.index].bigUrl} />
+        //     );
+        // }
+
+        let whatHorizontal = null;
+        let whoHorizontal = null;
+        let whatVertical =null;
+        let whoVertical =null;
+
+        if (this.state.cards) {
+            whatHorizontal = <HoverCard
+                cards={this.state.cards}
+                type="who" />;
+
+            whoHorizontal = <HoverCard
+                cards={this.state.cards}
+                type="what" />;
+        }
+
 
         if (this.state.cards && this.state.showCards) {
-            console.log(this.state.cards[this.state.index].data);
-            something = (
-                <DescriptiveCard
-                    name={this.state.cards[this.state.index].name}
-                    data={this.state.cards[this.state.index].data}
-                    imageUrl={this.state.cards[this.state.index].bigUrl} />
+            whoVertical = this.state.cards.map((card, index) => {
+                if(card.type==="who"){
+                    return <MinimalCard key={index}
+                    title={card.name}
+                    link={card.url}
+                    content={card.shortData} />;
+                }
+                return null;
+            })
+
+            whatVertical = this.state.cards.map((card, index) => {
+                if(card.type==="what"){
+                    return <MinimalCard key={index}
+                    title={card.name}
+                    link={card.url}
+                    content={card.shortData} />;
+                }
+                return null;
+            })
+        }
+
+        let horizondal = (
+            <div style={{marginTop:"200px"}}>
+                <Spinner /> ;
+            </div>
+        )
+        let vertical = null;
+
+        if(whatHorizontal && whatHorizontal) {
+            horizondal = (
+                <div className={classes.Horizondal} >
+                    <div style={{display:"flex",flexFlow:"column",width:"100%"}}>
+                    <div className={classes.Heading}>
+                        <h4 >Who is she not?</h4>
+                        <hr />
+                        {whoHorizontal}
+                    </div>
+                    <div className={classes.Heading}>
+                        <h4 >What can't she do?</h4>
+                        <hr />
+                        {whatHorizontal}
+                    </div>
+                    </div>   
+                </div>
             );
         }
 
-        let minimal = null;
+        if(whatVertical && whoVertical && whatHorizontal && whatHorizontal) {
+            vertical = (
+                <div className={classes.Vertical} >
+                    <div className={classes.Heading}>
+                        <h4 >Who is she not?</h4>
+                        <hr />
+                        {whoVertical}
+                    </div>
+                    <div className={classes.Heading}>
+                        <h4 >What can't she do?</h4>
+                        <hr />
+                        {whatVertical}
+                    </div>
 
-        if (this.state.cards && this.state.showCards) {
-            minimal = this.state.cards.map((card, index) => {
-                return <MinimalCard key={index}
-                    title={card.name}
-                    link={card.url}
-                    content={card.shortData} />
-            })
+                </div>
+            );
         }
+
 
         return (
             <div>
@@ -98,20 +170,18 @@ class Homepage extends Component {
                         ? Do you want to find out?</h2>
                         <button type="button" className="btn btn-lg btn-outline-info" style={{ marginTop: "4%" }} onClick={this.showCardsHandler}> Let's Find out</button>
                     </div>
-                    <div className={classes.Horizondal} hidden={!this.state.showCards}>
-                        <div className={classes.CustomButtonCSS}>
-                            <CustomButton buttonType="Previous" disabled={this.state.startofIndex} navigate={this.navigate} />
-                        </div>
-                        {something}
-                        <div className={classes.CustomButtonCSS}>
-                            <CustomButton buttonType="Next" disabled={this.state.endofIndex} navigate={this.navigate} />
-                        </div>
-                    </div>
-                    <div className={classes.Vertical} hidden={!this.state.showCards}>
-                        {minimal}
-                    </div>
                 </div>
+                <div hidden={!this.state.showCards}>
+                    {horizondal}  
+                </div>
+
+                <div hidden={!this.state.showCards}>
+                    {vertical}
+                </div>
+                
+                
             </div>
+
         );
     }
 }

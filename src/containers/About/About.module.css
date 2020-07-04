@@ -35,9 +35,9 @@
     margin-bottom: 20px;
 }
 
-.MobileButton{
+/* .MobileButton{
   display: none;
-}
+} */
 
 @media (max-width : 480px) {
     .Intro{
@@ -51,14 +51,14 @@
     .Intro img{
       width: 200px;
     }
-    .WebButton{
+    /* .WebButton{
       display: none;
     }
     .MobileButton{
       display: inline;
       margin-left: 40%;
       padding: 1%;
-    }
+    } */
     .About h3{
       font-size: 1.3rem;
     }

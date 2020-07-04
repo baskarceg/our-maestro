@@ -132,14 +132,14 @@ class About extends Component {
                     <div className={classes.Testimonial} hidden={!this.state.displayTestimonial}>
                         {testimonials}
                     </div>
-                    <div className={classes.MobileButton} >
+                    {/* <div className={classes.MobileButton} >
                         <button
                             type="button"
                             onClick={this.returnHandler}
                             className="btn btn-outline-dark">
                             Back
                             </button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         );

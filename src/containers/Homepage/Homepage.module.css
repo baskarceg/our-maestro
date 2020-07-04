@@ -8,7 +8,8 @@
     text-align: center;
     display: flex;
     flex-flow: row;
-    margin: 150px auto 0px;
+    margin: 100px auto 0px;
+    width: 95%;
 }
 
 .Vertical{
@@ -27,6 +28,11 @@
 
 .Intro img{
   width:250px;
+}
+
+.Heading h4{
+  text-align: left;
+  font-family: "Finger Paint";
 }
 
 @media (max-width : 480px) {
