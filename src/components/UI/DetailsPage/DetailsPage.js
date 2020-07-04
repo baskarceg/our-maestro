@@ -5,9 +5,12 @@ import Image from '../Image/Image';
 import Spinner from '../Spinner/Spinner';
 
 const detailsPage = (props) => {
+    console.log(props);
     let showQuote = null;
-    if (props.type === "friends") {
+    let quote =null;
+    if (props.type === "friends" && props.testimonial) {
         showQuote = true;
+        quote= <BirthdayQuote content={props.testimonial.content} />;
     }
     else {
         showQuote = false;
@@ -43,7 +46,7 @@ const detailsPage = (props) => {
             <div hidden={!showQuote}>
                 <div className={classes.Heading}>
                     <div className="d-flex justify-content-between">
-                        <h4 >{props.testimonial.name}'s Message</h4>
+                        <h4 >{props.friend.name}'s Message</h4>
                         <div className={classes.WebButton}>
                             <button
                                 type="button"
@@ -56,7 +59,7 @@ const detailsPage = (props) => {
                     <hr />
                 </div>
                 <div className={classes.Quote} >
-                    <BirthdayQuote content={props.testimonial.content} />
+                    {quote}
                 </div>
                 <div hidden={!showImage} className={classes.Flashback}>
                     <div className="card bg-dark text-white" >
@@ -66,10 +69,22 @@ const detailsPage = (props) => {
             </div>
             <div className={classes.Content}>
                 <div className={classes.Heading}>
-                    <h4 >Whos's {props.testimonial.name}?</h4>
+                <div className="d-flex justify-content-between">
+                        <h4 >Whos's {props.friend.name}?</h4>
+                        <div className={classes.WebButton} hidden={showQuote}>
+                            <button
+                                type="button"
+                                onClick={props.goBack}
+                                className="btn btn-outline-dark">
+                                Back
+                            </button>
+                        </div>
+                    </div>
                     <hr />
                 </div>
-                Some Content
+                <div style={{fontFamily:"Finger Paint"}}>
+                    SomeContent klsdajsdlkjalk lajsdlkjalksj dlkajlk sjklajsdklj klajsdklja klsjdlkajsdkljalks jdklajskldjalkjs klajklsdjklasjdlkja kljsdlkjaklsjdklasjdkljaklsdjaklsjdlkajskldjal
+                </div>
             </div>
             <div className={classes.More}>
                 <div className={classes.Heading}>

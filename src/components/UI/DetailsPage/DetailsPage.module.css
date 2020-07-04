@@ -11,7 +11,10 @@
     flex-flow: row;
     flex-wrap: wrap;
 }
-
+.Content{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
 .Heading{
     font-family: "Finger Paint";
     padding-top: 0;

@@ -83,7 +83,7 @@ class About extends Component {
         if (this.state.testimonials && this.state.currentGroup) {
             testimonials = this.state.testimonials.map((testimonial, index) => {
                 if (testimonial) {
-                    if (testimonial.groupName.includes(this.state.currentGroup)) {
+                    if (testimonial.groupName.includes(this.state.currentGroup)&&testimonial.modContent) {
                         return <NotepaperQuote
                             key={index}
                             by={testimonial.name}
@@ -105,7 +105,7 @@ class About extends Component {
                 <div className={classes.Intro}
                     style={{ fontFamily: "Finger Paint" }}
                     hidden={!this.state.displayTitle}>
-                    <h2> Oh!! Are you curious  ?</h2>
+                    <h2> What people say about The Meastro?</h2>
                     <button type="button" 
                     className="btn btn-lg btn-outline-info" 
                     style={{ marginTop: "4%" }} 
