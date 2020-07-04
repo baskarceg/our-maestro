@@ -80,8 +80,8 @@ class Homepage extends Component {
 
         let whatHorizontal = null;
         let whoHorizontal = null;
-        let whatVertical =null;
-        let whoVertical =null;
+        let whatVertical = null;
+        let whoVertical = null;
 
         if (this.state.cards) {
             whatHorizontal = <HoverCard
@@ -96,63 +96,73 @@ class Homepage extends Component {
 
         if (this.state.cards && this.state.showCards) {
             whoVertical = this.state.cards.map((card, index) => {
-                if(card.type==="who"){
+                if (card.type === "who") {
                     return <MinimalCard key={index}
-                    title={card.name}
-                    link={card.url}
-                    content={card.shortData} />;
+                        title={card.name}
+                        link={card.url}
+                        content={card.shortData} />;
                 }
                 return null;
             })
 
             whatVertical = this.state.cards.map((card, index) => {
-                if(card.type==="what"){
+                if (card.type === "what") {
                     return <MinimalCard key={index}
-                    title={card.name}
-                    link={card.url}
-                    content={card.shortData} />;
+                        title={card.name}
+                        link={card.url}
+                        content={card.shortData} />;
                 }
                 return null;
             })
         }
 
         let horizondal = (
-            <div style={{marginTop:"200px"}}>
+            <div style={{ marginTop: "200px" }}>
                 <Spinner /> ;
             </div>
         )
         let vertical = null;
 
-        if(whatHorizontal && whatHorizontal) {
+        if (whatHorizontal && whatHorizontal) {
             horizondal = (
                 <div className={classes.Horizondal} >
-                    <div style={{display:"flex",flexFlow:"column",width:"100%"}}>
-                    <div className={classes.Heading}>
-                        <h4 >Who is she not?</h4>
-                        <hr />
-                        {whoHorizontal}
+                    <div style={{ display: "flex", flexFlow: "column", width: "100%" }}>
+                        <div >
+                            <div className={classes.Heading}>
+                                <h4 >Who is she not?</h4>
+                                <hr />
+                            </div>
+
+                            {whoHorizontal}
+                        </div>
+                        <div >
+                            <div className={classes.Heading}>
+                                <h4 >What can't she do?</h4>
+                                <hr />
+                            </div>
+
+                            {whatHorizontal}
+                        </div>
                     </div>
-                    <div className={classes.Heading}>
-                        <h4 >What can't she do?</h4>
-                        <hr />
-                        {whatHorizontal}
-                    </div>
-                    </div>   
                 </div>
             );
         }
 
-        if(whatVertical && whoVertical && whatHorizontal && whatHorizontal) {
+        if (whatVertical && whoVertical && whatHorizontal && whatHorizontal) {
             vertical = (
                 <div className={classes.Vertical} >
-                    <div className={classes.Heading}>
-                        <h4 >Who is she not?</h4>
-                        <hr />
+                    <div >
+                        <div className={classes.Heading}>
+                            <h4 >Who is she not?</h4>
+                            <hr />
+                        </div>
                         {whoVertical}
                     </div>
-                    <div className={classes.Heading}>
-                        <h4 >What can't she do?</h4>
-                        <hr />
+                    <div >
+                        <div className={classes.Heading}>
+                            <h4 >What can't she do?</h4>
+                            <hr />
+                        </div>
                         {whatVertical}
                     </div>
 
@@ -172,14 +182,14 @@ class Homepage extends Component {
                     </div>
                 </div>
                 <div hidden={!this.state.showCards}>
-                    {horizondal}  
+                    {horizondal}
                 </div>
 
                 <div hidden={!this.state.showCards}>
                     {vertical}
                 </div>
-                
-                
+
+
             </div>
 
         );
