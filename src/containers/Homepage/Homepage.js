@@ -86,17 +86,17 @@ class Homepage extends Component {
         if (this.state.cards) {
             whatHorizontal = <HoverCard
                 cards={this.state.cards}
-                type="who" />;
+                type="what" />;
 
             whoHorizontal = <HoverCard
                 cards={this.state.cards}
-                type="what" />;
+                type="who" />;
         }
 
 
         if (this.state.cards && this.state.showCards) {
             whoVertical = this.state.cards.map((card, index) => {
-                if (card.type === "who") {
+                if (card && card.type === "who") {
                     return <MinimalCard key={index}
                         title={card.name}
                         link={card.url}
@@ -106,7 +106,7 @@ class Homepage extends Component {
             })
 
             whatVertical = this.state.cards.map((card, index) => {
-                if (card.type === "what") {
+                if (card && card.type === "what") {
                     return <MinimalCard key={index}
                         title={card.name}
                         link={card.url}
@@ -129,7 +129,7 @@ class Homepage extends Component {
                     <div style={{ display: "flex", flexFlow: "column", width: "100%" }}>
                         <div >
                             <div className={classes.Heading}>
-                                <h4 >Who is she not?</h4>
+                                <h4 >Who can't she be?</h4>
                                 <hr />
                             </div>
 
@@ -153,7 +153,7 @@ class Homepage extends Component {
                 <div className={classes.Vertical} >
                     <div >
                         <div className={classes.Heading}>
-                            <h4 >Who is she not?</h4>
+                            <h4 >Who can't she be?</h4>
                             <hr />
                         </div>
                         {whoVertical}

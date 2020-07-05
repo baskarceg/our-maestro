@@ -4,4 +4,9 @@
 
 .MinimalCard h5{
     font-family: "Finger Paint";
+    color: #f38695;
+}
+
+.MinimalCard p{
+    font-family: "Finger Paint";
 }

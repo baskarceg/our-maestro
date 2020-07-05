@@ -2,7 +2,6 @@ import React from 'react';
 import classes from './DetailsPage.module.css';
 import BirthdayQuote from '../BirthdayQuote/BirthdayQuote';
 import Image from '../Image/Image';
-import Spinner from '../Spinner/Spinner';
 
 const detailsPage = (props) => {
     console.log(props);
@@ -15,7 +14,7 @@ const detailsPage = (props) => {
     else {
         showQuote = false;
     }
-    let images = <Spinner />;
+    let images = null;
 
     let showImage = null;
 
@@ -28,17 +27,6 @@ const detailsPage = (props) => {
         images = imagesArray.map(image => {
             return <Image photoSrc={image} />
         })
-    }
-    else {
-        images = (
-            <div>
-                <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
-                <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
-                <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
-                <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
-                <Image photoSrc="https://i.ibb.co/d2gtH4z/mathini.jpg" />
-            </div>
-        );
     }
 
     return (
@@ -67,10 +55,10 @@ const detailsPage = (props) => {
                     </div>
                 </div>
             </div>
-            <div className={classes.Content}>
+            <div className={classes.More} hidden={!images}>
                 <div className={classes.Heading}>
-                <div className="d-flex justify-content-between">
-                        <h4 >Whos's {props.friend.name}?</h4>
+                    <div className="d-flex justify-content-between">
+                        <h4 >More Pictures</h4>
                         <div className={classes.WebButton} hidden={showQuote}>
                             <button
                                 type="button"
@@ -80,15 +68,6 @@ const detailsPage = (props) => {
                             </button>
                         </div>
                     </div>
-                    <hr />
-                </div>
-                <div style={{fontFamily:"Finger Paint"}}>
-                    SomeContent klsdajsdlkjalk lajsdlkjalksj dlkajlk sjklajsdklj klajsdklja klsjdlkajsdkljalks jdklajskldjalkjs klajklsdjklasjdlkja kljsdlkjaklsjdklasjdkljaklsdjaklsjdlkajskldjal
-                </div>
-            </div>
-            <div className={classes.More}>
-                <div className={classes.Heading}>
-                    <h4 >More Pictures</h4>
                     <hr />
                 </div>
                 <div className={classes.Pics}>
