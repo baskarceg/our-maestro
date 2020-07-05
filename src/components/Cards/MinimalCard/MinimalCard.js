@@ -8,8 +8,8 @@ const minimalCard = (props) => {
         return <p>{data}</p>
     })
     return (
-        <div className={classes.MinimalCard}>
-            <div className="card" >
+        <div className={classes.MinimalCard} >
+            <div className="card" style={{boxShadow:"0 0 5px 2px"}}>
                 <img src={props.link} className="card-img-top" alt="Photos" />
                 <div className="card-body">
                     <h5 className="card-title">{props.title}</h5>

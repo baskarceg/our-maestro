@@ -10,7 +10,7 @@
 @media ( max-width : 480px){
     .Image{
         width: 304px;
-        height: 240px;
+        height: 200px;
         margin: 15px auto;
     }
 }
