@@ -140,8 +140,8 @@ class Friends extends Component {
             console.log("Here"+groupPics)
             if (groupPics) {
                 let groupPicsArray = groupPics.split(',');
-                groupImages = groupPicsArray.map(image => {
-                    return <Image photoSrc={image} />
+                groupImages = groupPicsArray.map((image,index)=> {
+                    return <Image key={index} photoSrc={image} />
                 })
             }
 

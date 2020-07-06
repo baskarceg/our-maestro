@@ -4,6 +4,7 @@ import classes from './Family.module.css';
 import FamilyCard from '../../components/Cards/FamilyCard/FamilyCard';
 import axios from '../../axios_orders';
 import DetailsPage from '../../components/UI/DetailsPage/DetailsPage';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 class Family extends Component {
     state = {
@@ -11,7 +12,8 @@ class Family extends Component {
         displayFamily: true,
         displayMember: false,
         currentMember: null,
-        currentMemberData: null
+        currentMemberData: null,
+        currentMemberTestimonial : null
     }
 
     componentDidMount() {
@@ -26,19 +28,21 @@ class Family extends Component {
     }
 
     photoClickedHandler = (memberName) => {
-        console.log(memberName);
         this.state.familyMembers.map((member, index) => {
-            console.log(member.name);
             if (member.name === memberName) {
-                console.log(member.name);
-                console.log(member);
-                this.setState({
-                    currentMember:member.name,
-                    currentMemberData: member,
-                    displayFamily: false,
-                    displayMember: true
-                });
+                let testimonial = {};
+                testimonial.content = member.content;
                 window.scrollTo(0, 0);
+                console.log(this.state);
+                this.setState(prevState => {
+                    return ({
+                        currentMember:member.name,
+                        currentMemberData:member,
+                        displayFamily:false,
+                        displayMember:true,
+                        currentMemberTestimonial:testimonial
+                    })   
+                })
             }
             return null;
         })
@@ -55,7 +59,7 @@ class Family extends Component {
     }
     render() {
 
-        let familyMembers = null;
+        let familyMembers = <Spinner />;
 
         if (this.state.familyMembers) {
             familyMembers = this.state.familyMembers.map((member, index) => {
@@ -73,7 +77,7 @@ class Family extends Component {
             memberDetails = <DetailsPage
                 type="friends"
                 friend={this.state.currentMemberData}
-                //testimonial={this.state.currentFriendTestimonial} 
+                testimonial={this.state.currentMemberTestimonial} 
                 goBack={this.goBackFamilyHandler}/>
         }
         console.log(memberDetails);
