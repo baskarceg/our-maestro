@@ -1,6 +1,8 @@
 .HerWorld{
     width: 95%;
     margin: auto;
+    font-family: 'Glass Antiqua', cursive;
+    font-size: 1.1rem;
 }
 
 .Content{
@@ -16,6 +18,7 @@
     font-family: "Finger Paint";
     font-size: 1.6rem;
     padding-top: 20px;
+    color: #f38695;
 }
 
 .Content img{
