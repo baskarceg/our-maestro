@@ -38,7 +38,7 @@ class HerWorld extends Component {
                     <hr></hr>
                 </div>
                 <div className={classes.Content}>
-                    <img src="https://i.ibb.co/PrTj6xk/amma3.jpg" alt="Amma"></img>
+                    <img src="https://i.ibb.co/q0zkGKP/amma2.jpg" alt="Amma"></img>
                     <div className={classes.Paragraph}>
                         <p>
                         This mother daughter duo is something we all hold close to our hearts. It is not a common thing that when you talk about a person , you somehow also start talking about their parents. This is the case of Roshini and Amma. You can’t talk about one person without talking about the other.<br/><br/>When you ask about Rosh, you can’t describe her without talking about her sincere love towards her mom. And you can’t describe Amma, without talking about how she has given her heart and soul into the health , well-being and happiness of Roshini.<br/><br/>Every-time I watch a movie, where the relationship of a mother and son or mother and daughter is so pure , or when a mother’s only thought is the betterment of her daughter’s life, they immediately come to my mind. That is why I love their relationship.

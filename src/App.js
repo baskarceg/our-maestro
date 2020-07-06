@@ -10,6 +10,7 @@ import Friends from './containers/Friends/Friends';
 import Family from './containers/Family/Family';
 import About from './containers/About/About';
 import classes from './App.module.css';
+import Life from './containers/Life/Life';
 
 class App extends Component {
 
@@ -28,6 +29,7 @@ class App extends Component {
             <Route path="/herWorld" component={HerWorld} />
             <Route path="/friends" component={Friends} />
             <Route path="/family" component={Family} />
+            <Route path="/life" component={Life} />
             <Route path="/" component={HomePage} />
             <Redirect from="/" to="/home" />
           </Switch>
